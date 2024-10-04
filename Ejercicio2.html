@@ -143,10 +143,14 @@
                     for (let i = 0; i < imgs.length; i++) {
                         if (imgs[i].style.borderRadius === '3%') {
                             imgs[i].style.borderRadius = '50%';
+                            imgs[i].style.aspectRatio = '1 / 1';
+                      //Caso que sea otro filter aparte
                         } else if (imgs[i].style.borderRadius === '0%') {
                             imgs[i].style.borderRadius = '50%';
+                            imgs[i].style.aspectRatio = '1 / 1';
                         } else {
                             imgs[i].style.borderRadius = '3%';
+                            imgs[i].style.aspectRatio = ''
                         }
                     }
                 });
