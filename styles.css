@@ -24,7 +24,22 @@ body {
     align-items: center;
     box-sizing: border-box;
   }
-  
+  .flex2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    height: 30px;
+    box-sizing: border-box;
+    box-shadow: 0 0 10px black;
+  }
+  .hijos:hover{
+    background-color: rgba(0, 0, 0, 0.1);
+
+  }
+  .hijos{
+    font-family: bold;
+  }
   .min-h-60px {
     min-height: 60px;
   }
