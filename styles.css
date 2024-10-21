@@ -40,6 +40,7 @@ body {
   .hijos{
     font-family: bold;
   }
+
   .min-h-60px {
     min-height: 60px;
   }
@@ -140,6 +141,7 @@ body {
   main {
     width: min(768px, 100%);
     margin: auto;
+
 
     .article-img{
         width: 100%;
