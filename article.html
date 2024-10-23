@@ -4,9 +4,9 @@
   <div class="flex p-10 shadow-md min-h-60px">
     <button class="menu-toggle transparent">≡</button>
     <span class="logo">
+      <span class="logo-item">R</span>
+      <span class="logo-item">U</span>
       <span class="logo-item">B</span>
-      <span class="logo-item">B</span>
-      <span class="logo-item">C</span>
     </span>
     <button class="dialog-search transparent">🔍</button>
   </div>
@@ -66,10 +66,11 @@
     connectedCallback() {
       this.render();
       setInterval(() => this.render(), 1000);
+      
     }
     render() {
       const timeValue = this.getAttribute('time')
-      const time = timeValue ? new Date(Number(timeValue)).getTime() : Date.now();
+      const time = timeValue ? new Date(timeValue).getTime() : Date.now();
       const now = Date.now();
 
       const diff = now - time;
@@ -231,7 +232,10 @@
       p.textContent = article.description;
       const img = this.querySelector('.article-img');
       img.src = article.image;
-      
+      const relativetime = this.querySelector('relative-time');
+      // relativetime.setAttribute('time', article.date);
+      const newrelativeTime = `<relative-time time="${article.date}"/>`;
+      relativetime.outerHTML = newrelativeTime;
     }
   }
   customElements.define('custom-article', CustomArticle);
