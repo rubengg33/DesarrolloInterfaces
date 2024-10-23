@@ -1,3 +1,12 @@
+a{
+  text-decoration: none;
+  color: black;
+}
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -9,8 +18,10 @@ body {
     margin: auto;
     .logo-item {
       background: black;
-      padding: 10px;
-      margin: 5px;
+      padding: 7px;
+      margin: 2px;
+      font-weight: bold;
+      font-size: 25px;
     }
   }
   
@@ -20,26 +31,38 @@ body {
   
   .flex {
     display: flex;
-    justify-content: left;
+    justify-content:center;
     align-items: center;
+    gap:0px;
+    padding: 0px;
+    background-color: white;
     box-sizing: border-box;
+    border-bottom: 1px solid lightgray;
   }
   .flex2{
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 10px;
-    height: 30px;
-    box-sizing: border-box;
-    box-shadow: 0 0 10px black;
+    gap: 20px;
+    padding: 10px;
+    background-color: white;
+    border-bottom: 1px solid #dcdcdc;
   }
+  .hijos{
+    font-size: 16px;
+   padding: 8px;
+   cursor: pointer;
+   transition: background-color 0.3s ease;
+   text-align: center;
+   font-weight: bold;
+ }
   .hijos:hover{
     background-color: rgba(0, 0, 0, 0.1);
 
   }
-  .hijos{
-    font-family: bold;
-  }
+  .hijos.active {
+    border-bottom: 3px solid black; /* Barra negra en el elemento activo */
+}
 
   .min-h-60px {
     min-height: 60px;
