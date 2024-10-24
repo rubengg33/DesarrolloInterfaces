@@ -26,9 +26,11 @@ body {
   }
   
   .block {
-    display: block;
+    /* grid-template-columns: repeat(auto-fit, minmax(200px, 3fr)); */
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    gap: 10px;
   }
-  
   .flex {
     display: flex;
     justify-content:center;
