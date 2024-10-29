@@ -6,35 +6,75 @@
   display: block;
 }
 .navbar.visible{
+  position: fixed;
   display: flex;
   flex-direction: column;
   align-items: start;
   gap: 1rem;
-  position: absolute;
   top: 0;
   left: 0;
   bottom: 0;
-  background-color: none;
   padding: 2rem;
+  position: absolute;
+  box-shadow: black 10px 10px 10px;
+  background-color: white;
   .flex{
-    height: 200px;
+    height:auto;
+    justify-content: left;
     flex-direction: column;
     align-items: start;
-    position: absolute;
     top: 0;
     left: 0;
     bottom: 0;
   }
+  /* .flex:hover{
+    background-color: rgba(0, 0, 0,0.1);
+  } */
+  .menu-toggle{
+    display: none;
+    z-index: 1;
+  }
+  .hijos{
+    width: 100%;
+  }
   .hijos.active{
     border-bottom: none;
   }
+  .hijos:hover{
+    background-color:rgba(0, 0, 0, 0.1  )
+  }
   .menu-close{
-    display: inline-block;
+    display: block;
+    border: none;
+    background-color: white;
+    height: 10px;
+    font-weight: bold;
+    font-size: 30px;
+    margin: 5px;
+    cursor: pointer;
+  }
+i:hover{
+    background-color: rgba(0, 0, 0, 0.1);
   }
   .visible ul li{
     list-style: none;
     flex-direction: column;
   }
+}
+.navbar.visible .menu-toggle {
+  display: none;
+}
+.menu-container.visible .menu-toggle {
+  display: none;
+}
+
+.menu-container.visible .navbar {
+  display: flex;
+}
+body.fixed {
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
 }
 a{
   text-decoration: none;
@@ -129,6 +169,7 @@ body {
     font-size: 32px;
     font-weight: bold;
     font-family: math;
+    display: block;
   }
   
   .close-btn {

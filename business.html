@@ -1,252 +1,138 @@
-<link rel="stylesheet" href="./styles.css"/>
-
-<custom-search>
-  <div class="flex p-10 shadow-md min-h-60px">
-    <button class="menu-toggle transparent">≡</button>
-    <span class="logo">
-      <span class="logo-item">R</span>
-      <span class="logo-item">U</span>
-      <span class="logo-item">B</span>
-    </span>
-    <button class="dialog-search transparent">🔍</button>
-  </div>
-  <nav class="navbar">
-    <ul class="flex">
-      <li class="hijos"><a href="./article.html">Home</a></li>
-      <li class="hijos"><a href="./news.html">News</a></li>
-      <li class="hijos"><a href="./usselection.html">US Selection</a></li>
-      <li class="hijos"><a href="./sport.html">Sport</a></li>
-      <li class="hijos active"><a href="./business.html">Business</a></li>
-    </ul>
-  </nav>
-  <dialog>
-    <button class="close-btn">🗙</button>
-    <h1>Search</h1>
-    <input type="search" id="site-search" name="q" />
-
-    <template>
-      <li>
-        <div class="flex flex-col items-center card">
-          <img class="object-cover item-image" src="https://flowbite.com/docs/images/blog/image-4.jpg">
-          <div class="flex flex-col justify-between">
-            <h5 class="item-title">
-              <a href="article.html?id={id}">
-                {value}
-              </a>
-            </h5>
-            <p class="item-description">Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.
-            </p>
-            <relative-time time="Wed Oct 16 2024 11:12:41 GMT+0200"/>
-          </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <title>Document</title>
+</head>
+<body>
+    <custom-search class="menu-container">
+        <div class="flex p-10 shadow-md min-h-60px">
+            <button class="menu-toggle transparent">≡</button>
+            <aside class="menu-sidebar">
+            </aside>
+            <span class="logo">
+                <a href="index.html">
+                    <span class="logo-item">R</span>
+                    <span class="logo-item">U</span>
+                    <span class="logo-item">B</span>
+                    <span class="logo-item">É</span>
+                    <span class="logo-item">N</span>
+                </a>
+            </span>
+            <button class="dialog-search transparent">🔍</button>
         </div>
-      </li>
-    </template>
-
-    <ul id="search-results">
-    </ul>
-  </dialog>
-</custom-search>
-
-<main>
-  <custom-article>
-    <article class="block">
-      <h1>Climate Activists Push for Carbon Tax With Measure GG, But Critics Warn it Could Backfire </h1>
-      <relative-time time="1729250766363"></relative-time>
-      <img class="article-img"src="https://cdn.kqed.org/wp-content/uploads/sites/35/2024/10/GettyImages-1347890261-1020x680.jpg">
-      <p>Grassroots climate activists argue a tax on gas use in large buildings will help all of Berkeley kick fossil fuels. But many politicians, businesses, and nonprofits, even those that work on climate, don’t think Measure GG is the policy to get there.</p>
-    </article>
-  </custom-article>
-</main>
-
-<script>
-  class RelativeTime extends HTMLElement {
-    constructor() {
-      super();
-    }
-    connectedCallback() {
-      this.render();
-      setInterval(() => this.render(), 1000);
-    }
-    render() {
-      const timeValue = this.getAttribute('time')
-      const time = timeValue ? new Date(Number(timeValue)).getTime() : Date.now();
-      const now = Date.now();
-
-      const diff = now - time;
-      const seconds = Math.floor(diff / 1000) || 1;
-      const minutes = Math.floor(diff / (1000 * 60));
-      const hours = Math.floor(diff / (1000 * 60 * 60));
-      const days = Math.floor(hours / 24);
-      const months = Math.floor(days / 30);
-      const years = Math.floor(months / 12);
-
-      let aux = '...';
-      if (months >= 12) {
-        aux = `Hace ${years} año${years > 1 ? 's' : ''}`
-      } else if (days > 30 && months >= 1) {
-        aux = `Hace ${months} mes${months > 1 ? 'es' : ''}`
-      } else if (days >= 1) {
-        aux = `Hace ${days} día${days > 1 ? 's' : ''}`
-      } else if (hours >= 1) {
-        aux = `Hace ${hours} hora${hours > 1 ? 's' : ''}`
-      } else if (minutes >= 1) {
-        aux = `Hace ${minutes} minuto${minutes > 1 ? 's' : ''}`
-      } else if (seconds >= 1) {
-        aux = `Hace ${seconds} segundo${seconds > 1 ? 's' : ''}`
-      }
-
-      this.textContent = aux;
-    } 
-  }
-  customElements.define('relative-time', RelativeTime);
-</script>
-
-<script>
-  const articles = [
-    {
-      "id": 1,
-      "image": "https://cdn.kqed.org/wp-content/uploads/sites/35/2024/10/GettyImages-1347890261-1020x680.jpg",
-      "title": "Climate Activists Push for Carbon Tax With Measure GG, But Critics Warn it Could Backfire",
-      "description": "Grassroots climate activists argue a tax on gas use in large buildings will help all of Berkeley kick fossil fuels. But many politicians, businesses, and nonprofits, even those that work on climate, don’t think Measure GG is the policy to get there.",
-      "date": "2023-10-17T11:00:16Z",
-      "category": "Climate"
-    },
-    {
-      "id": 2,
-      "image": "https://fortune.com/img-assets/wp-content/uploads/2024/10/GettyImages-2170862982_413c33-e1729160290535.jpg?resize=1200,600",
-      "title": "Musk’s empire risks being targeted by EU for potential X fines",
-      "description": "The EU may target Elon Musk’s broader business empire for X fines, potentially including revenue from SpaceX and Neuralink to increase penalties.",
-      "date": "2024-09-17T10:32:45Z",
-      "category": "Business"
-    },
-    {
-      "id": 3,
-      "image": "https://media.autoexpress.co.uk/image/private/s--X-WVjvBW--/f_auto,t_content-image-full-desktop@1/v1729160267/autoexpress/2024/10/Omode E5 first UK drive.jpg",
-      "title": "Omoda E5 in Noble trim - pictures",
-      "description": "Pictures of the electric Omode E5 SUV being driven on UK roads. Pictures taken by Auto Express senior photographer Pete Gibson",
-      "date": "2024-10-15T10:30:56Z",
-      "category": "Automobile"
-    },
-    {
-      "id": 4,
-      "image": "https://cdn.mos.cms.futurecdn.net/6xqynicLzH6sSskfiNyWoT-1200-80.jpg",
-      "title": "Renault, Alpine and Citroën help the 2024 Paris Motor Show return to form",
-      "description": "Explore the most delectable debuts at the Paris Motor Show 2024 – or Mondial de l'Auto – including designs from France's big car makers and niche machines from around the world",
-      "date": "2024-10-13T10:25:24Z",
-      "category": "Automobile"
-    },
-    {
-      "id": 5,
-      "image": "https://www.computerworld.com/wp-content/uploads/2024/10/3567767-0-90640600-1729160617-IDG-Germany-Intel-September-News.jpg?quality=50&strip=all&w=1024",
-      "title": "Chinese cybersecurity association urges review of Intel products",
-      "description": "The Cybersecurity Association of China (CSAC) has urged a security review of Intel products sold in the country, claiming the US semiconductor firm poses ongoing threats to China’s national security and interests.",
-      "date": "2024-10-01T10:22:56Z",
-      "category": "Technology"
-    }
-  ]
-
-  class CustomSearch extends HTMLElement {
-    constructor() {
-      super();
-      this.articles = articles;
-    }
-
-    connectedCallback() {
-      const dialogBtn = this.querySelector('.dialog-search');
-      const closeBtn = this.querySelector('.close-btn');
-      const dialog = this.querySelector('dialog');
-
-      dialogBtn.addEventListener('click', () => {
-        dialog.showModal();
-      });
-      closeBtn.addEventListener('click', () => {
-        dialog.close();
-      });
-      const siteSearch = this.querySelector('#site-search');
-      siteSearch.addEventListener('input', (event) => this.search(event));
-
-      this.renderResults('')
-    }
-
-    search(event) {
-      event.preventDefault();
-      const siteSearch = this.querySelector('#site-search');
-      const term = siteSearch.value
-      // console.log({term});
-      this.renderResults(term)
-    }
-
-    renderResults(term = '') {
-      // Implement your search logic here
-      const searchResults = this.querySelector('#search-results');
-      searchResults.innerHTML = '';
-      const _articles = this.articles
-        .filter(article => article.title.toLowerCase().includes(term.toLowerCase()))
-
-      // mode 3 using <template>
-      const template = this.querySelector('template').content;
-      // loop
-      _articles.map(article => {
-        const li = template.querySelector('li').cloneNode(true);
-        // item-image, item-title, item-description
-        li.querySelector('.card .item-image').src = article.image;
-        li.querySelector('.card .item-description').textContent = article.description;
-        // replate relative-time time
-        li.querySelector('relative-time').setAttribute('time', article.date)
-        li.querySelector('.card .item-title a').textContent = article.title;
-
-        const enlace = li.querySelector('.card .item-title a')
-        const href = enlace.href
-        enlace.href = href.replace('{id}', article.id)
-
-        searchResults.appendChild(li);
-      })
-    }
-  }
-  customElements.define('custom-search', CustomSearch);
-</script>
+        <nav class="navbar">
+            <button class="menu-close"><i class="bi bi-x"></i></button>
+            <ul class="flex nav-list">
+                <li class="hijos"><a href="index.html">Home</a></li>
+                <li class="hijos"><a href="news.html">News</a></li>
+                <li class="hijos"><a href="usselection.html">US Selection</a></li>
+                <li class="hijos"><a href="sport.html">Sport</a></li>
+                <li class="hijos active"><a href="business.html">Business</a></li>
+            </ul>
+        </nav>
+        <dialog>
+            <button class="close-btn">🗙</button>
+            <h1>Search</h1>
+            <input type="search" id="site-search" name="q" />
+    
+            <template>
+                <li>
+                    <div class="flex flex-col items-center card">
+                        <img class="object-cover item-image" src="https://flowbite.com/docs/images/blog/image-4.jpg">
+                        <div class="flex flex-col justify-between">
+                            <h5 class="item-title">
+                                <a href="article.html?id={id}">
+                                    {value}
+                                </a>
+                            </h5>
+                            <p class="item-description">Here are the biggest enterprise technology acquisitions of 2021 so
+                                far, in
+                                reverse chronological order.
+                            </p>
+                            <relative-time time="Wed Oct 16 2024 11:12:41 GMT+0200" />
+                        </div>
+                    </div>
+                </li>
+            </template>
+    
+            <ul id="search-results">
+            </ul>
+        </dialog>
+    </custom-search>
+    
+    <main>
+        <custom-article>
+            <article class="block">
+                
+                <div class="grids">
+                    <img class="article-img" src="https://ichef.bbci.co.uk/news/1024/cpsprodpb/c41c/live/4c6b77d0-9592-11ef-8f04-87373314615d.jpg.webp">
+                    <h1 class="title">
+                        <a href="article.html?id=25">
+                          Global Economic Trends to Watch in 2024</a>
+                    </h1>
+                    
+                    <p>As we approach 2024, experts predict key economic trends that could shape the global business landscape.</p>
+                        <relative-time time="2024-10-29T08:00:00Z"></relative-time>
+                </div>
+                <div class="grids">
+                  <img class="article-img" src="https://ichef.bbci.co.uk/news/640/cpsprodpb/f0a0/live/28869f40-95c2-11ef-9035-b130616828c2.jpg.webp">
+                  <h1 class="title">
+                      <a href="article.html?id=26">
+                        Tech Stocks Rally: What Investors Need to Know </a>
+                  </h1>
+                  
+                  <p>Tech stocks have seen a significant rally, prompting investors to reassess their portfolios as earnings reports come in.</p>
+                      <relative-time time="2024-10-27T14:30:00Z"></relative-time>
+              </div>
+                <div class="grids">
+                    <img class="article-img" src="https://ichef.bbci.co.uk/news/640/cpsprodpb/f9f8/live/94af0710-95e6-11ef-9607-9df2d810c28b.jpg.webp">
+                    <h1 class="title">
+                        <a href="article.html?id=27">
+                          Small Businesses Struggle Amid Rising Costs</a>
+                    </h1>
+                    
+                    <p>Small businesses are facing challenges due to rising operational costs and inflation, impacting their profitability.</p>
+                        <relative-time time="2024-10-25T12:15:00Z"></relative-time>
+                </div>
+                <div class="grids">
+                    <img class="article-img" src="https://ichef.bbci.co.uk/news/1536/cpsprodpb/0445/live/bbc403a0-9055-11ef-b11a-eda09aca0cf9.jpg.webp">
+                    <h1 class="title">
+                        <a href="article.html?id=28">
+                          US Stocks: Market Outlook for the Final Quarter</a>
+                    </h1>
+                    
+                    <p>Analysts provide insights into the stock market outlook as we head into the final quarter of 2024, focusing on key sectors.</p>
+                        <relative-time time="2024-10-24T10:00:00Z"></relative-time>
+                </div>
+                <div class="grids">
+                    <img class="article-img" src="https://ichef.bbci.co.uk/news/480/cpsprodpb/cd0b/live/0c2f0ca0-955a-11ef-ba4d-5b04a90bcb33.jpg.webp">
+                    <h1 class="title">
+                        <a href="article.html?id=29">
+                          Top Business Trends to Follow in 2024</a>
+                    </h1>
+                    
+                    <p>An overview of the top business trends expected to impact industries in 2024, including sustainability and digital transformation.</p>
+                        <relative-time time="2024-10-22T11:30:00Z"></relative-time>
+                </div>
+                <div class="grids">
+                    <img class="article-img" src="https://ichef.bbci.co.uk/news/480/cpsprodpb/abce/live/cf4008d0-954f-11ef-8b5c-f156af5ee6bf.jpg.webp">
+                    <h1 class="title">
+                        <a href="article.html?id=30">
+                          US Economy: Forecast for the Coming Year</a>
+                    </h1>
+                    
+                    <p>A comprehensive forecast of the US economy for 2024, examining key indicators and potential challenges.</p>
+                        <relative-time time="2024-10-19T09:45:00Z"></relative-time>
+                    </div>    
+            </article>
+        </custom-article>
+    </main>
+    <script src="main.js"></script>
+</body>
+</html>
 
 
-<script>
-  const getId = () => {
-    const searchParams = new URLSearchParams(location.search.slice(1));
-    return Number(searchParams.get('id'));
-  }
-
-  class CustomArticle extends HTMLElement {
-    constructor() {
-      super();
-      this.articleId = getId();
-    }
-    connectedCallback() {
-      this.render();
-    }
-
-    render() {
-      const article = articles.find(article => article.id === this.articleId)
-      // reemplazos de los contenidos del article
-      const h1 = this.querySelector('h1');
-      h1.textContent = article.title;
-      const p = this.querySelector('p');
-      p.textContent = article.description;
-      const img = this.querySelector('.article-img');
-      img.src = article.image;
-      
-    }
-  }
-  customElements.define('custom-article', CustomArticle);
-
-</script>
-<script>
-  const menuItems = document.querySelectorAll('.hijos');
-
-  menuItems.forEach(item => {
-    item.addEventListener('click', () => {
-      // Remueve la clase 'active' de todos los elementos
-      menuItems.forEach(i => i.classList.remove('active'));
-      
-      // Añade la clase 'active' al elemento clicado
-      item.classList.add('active');
-    });
-  });
-</script>
