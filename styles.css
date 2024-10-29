@@ -2,6 +2,40 @@
 .menu-close{
   display: none;
 }
+.navbar{
+  display: block;
+}
+.navbar.visible{
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 1rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  background-color: none;
+  padding: 2rem;
+  .flex{
+    height: 200px;
+    flex-direction: column;
+    align-items: start;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+  }
+  .hijos.active{
+    border-bottom: none;
+  }
+  .menu-close{
+    display: inline-block;
+  }
+  .visible ul li{
+    list-style: none;
+    flex-direction: column;
+  }
+}
 a{
   text-decoration: none;
   color: black;
@@ -49,15 +83,6 @@ body {
     background-color: white;
     box-sizing: border-box;
     border-bottom: 1px solid lightgray;
-  }
-  .flex2{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-    padding: 10px;
-    background-color: white;
-    border-bottom: 1px solid #dcdcdc;
   }
   .hijos{
     font-size: 16px;
@@ -184,24 +209,8 @@ body {
   @media screen and (max-width:550px) {
     .navbar{
       display: none;
-      flex-direction: column;
-      align-items: start;
-      gap: 1rem;
-      position: absolute;
-      top: 0;
-      left: 0;
-      bottom: 0;
-      background-color: gray;
-      padding: 2rem;
     }
-    .navbar-visible{
+    .navbar.visible{  
       display: block;
-    }
-    .menu-close{
-      display: none;
-    }
-    .nav-list{
-      flex-direction: column;
-      align-items: start;
     }
   }
