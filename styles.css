@@ -5,6 +5,9 @@
 .navbar{
   display: block;
 }
+relative-time{
+  color: gray;
+}
 .navbar.visible{
   position: fixed;
   display: flex;
