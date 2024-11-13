@@ -9,7 +9,6 @@ relative-time{
   color: gray;
 }
 .navbar.visible{
-  position: fixed;
   display: flex;
   flex-direction: column;
   align-items: start;

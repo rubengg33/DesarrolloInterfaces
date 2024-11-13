@@ -1,0 +1,14 @@
+news-viewer{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr
+}
+.description{
+    display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;  
+      overflow: hidden;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
